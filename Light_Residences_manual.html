@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Residences — Guest Manual</title>
+<style>
+  /* ── SCREEN + SHARED ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; color: #333; max-width: 540px; margin: 0 auto; padding: 24px 20px; line-height: 1.5; }
+  h1 { font-size: 1.4em; margin-bottom: 4px; }
+  h2 { font-size: 1.1em; margin-top: 28px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #222; }
+  .address { color: #666; font-size: 0.9em; margin-bottom: 12px; }
+  .badge { display: inline-block; font-weight: 700; padding: 2px 10px; border-radius: 4px; font-size: 0.95em; }
+  .badge-blue { background: #2a6099; color: #fff; }
+  .badge-red { background: #c9211e; color: #fff; }
+  .smart-lock { color: #2a6099; font-size: 0.9em; margin: 8px 0 4px; }
+  .id-notice { background: #fff3f0; border: 1px solid #e8a087; border-radius: 8px; padding: 10px 14px; margin: 10px 0 16px; font-size: 0.85em; }
+  .id-notice strong { color: #b42d1e; }
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .step { border: 1px solid #ddd; border-radius: 8px; padding: 12px; }
+  .step-num { display: inline-block; background: #2a6099; color: #fff; font-weight: 700; width: 24px; height: 24px; text-align: center; border-radius: 50%; font-size: 0.85em; line-height: 24px; margin-right: 4px; }
+  .step p { font-size: 0.85em; margin-top: 4px; }
+  .step .tip { font-size: 0.8em; color: #888; margin-top: 4px; font-style: italic; }
+  .step img { width: 100%; max-width: 160px; margin-top: 8px; border-radius: 4px; }
+  .wifi-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .wifi-box { background: #f5f5f5; border-radius: 8px; padding: 14px 16px; }
+  .wifi-box .band { font-size: 0.7em; color: #fff; background: #2a6099; padding: 1px 6px; border-radius: 3px; font-weight: 700; display: inline-block; margin-bottom: 6px; }
+  .wifi-box .label { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+  .wifi-box .value { font-weight: 700; font-size: 1em; color: #c9211e; }
+  .wifi-box .qr { text-align: center; margin-top: 8px; }
+  .wifi-box .qr img { width: 80px; border-radius: 4px; }
+  .wifi-box .qr-label { font-size: 0.7em; color: #888; margin-top: 2px; }
+  .rules { margin-top: 8px; padding-left: 18px; }
+  .rules li { font-size: 0.9em; margin-bottom: 6px; }
+  .rules .warn { color: #c9211e; font-weight: 700; }
+  .alexa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .alexa-card { background: #f5f5f5; border-radius: 8px; padding: 12px; }
+  .alexa-card h3 { font-size: 0.9em; margin-bottom: 6px; }
+  .alexa-card code { display: block; font-family: inherit; font-size: 0.82em; color: #555; margin-bottom: 3px; }
+  .alexa-card code b { color: #2a6099; font-weight: 600; }
+  .note { font-size: 0.8em; color: #666; margin-top: 12px; font-style: italic; }
+  .page-break { display: none; }
+  .page-header { display: none; }
+
+  /* ── PRINT ── */
+  @media print {
+    @page { size: letter; margin: 0.6in 0.7in; }
+    body { max-width: 100%; margin: 0; padding: 0; font-size: 11px; line-height: 1.4; color: #000; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 14px; margin-top: 18px; border-bottom-color: #000; }
+    .address { font-size: 10px; }
+    .badge { font-size: 11px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .smart-lock { font-size: 10px; margin: 4px 0 2px; }
+    .id-notice { font-size: 10px; padding: 8px 12px; margin: 6px 0 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .steps { gap: 8px; }
+    .step { padding: 8px; }
+    .step p { font-size: 9.5px; }
+    .step .tip { font-size: 8.5px; }
+    .step img { max-width: 120px; }
+    .step-num { width: 20px; height: 20px; line-height: 20px; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wifi-section { gap: 8px; }
+    .wifi-box { padding: 10px 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wifi-box .band { font-size: 8px; }
+    .wifi-box .label { font-size: 8px; }
+    .wifi-box .value { font-size: 12px; }
+    .wifi-box .qr img { width: 65px; }
+    .rules li { font-size: 10px; margin-bottom: 4px; }
+    .alexa-grid { gap: 8px; }
+    .alexa-card { padding: 8px 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .alexa-card h3 { font-size: 10px; margin-bottom: 4px; }
+    .alexa-card code { font-size: 9.5px; margin-bottom: 1px; }
+    .note { font-size: 8px; }
+    .page-break { display: block; page-break-before: always; height: 0; }
+    .page-header { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ PAGE 1: GETTING IN ════════ -->
+<h1>Light Residences</h1>
+<div class="address">Light Residences EDSA, Madison, Mandaluyong City, 1550, Metro Manila, Philippines</div>
+<span class="badge badge-blue">Check-in: After 3 PM</span>
+<span class="badge badge-red" style="margin-left:6px;">Check-out: Before 12 Noon</span>
+<p class="smart-lock">Smart lock code will be sent via AirBNB / Booking.com chat.</p>
+
+<div class="id-notice">
+  <strong>ID Required at Lobby.</strong> Building policy requires guests to leave a government-issued ID at the lobby in exchange for an access card. Your ID will be returned at checkout when you return the card.
+</div>
+
+<h2>How to Enter</h2>
+<div class="steps">
+  <div class="step">
+    <span class="step-num">1</span> <strong>Find the unit</strong>
+    <p>Go to <strong>Tower 3, 12th Floor, Unit 1226</strong></p>
+    <img src="images/light/image4.png" alt="Unit 1226 door">
+  </div>
+  <div class="step">
+    <span class="step-num">2</span> <strong>Wake the lock</strong>
+    <p>Touch the <strong>Card symbol</strong> on the digital lock to light up the keypad.</p>
+    <img src="images/light/image2.png" alt="Card symbol on lock">
+  </div>
+  <div class="step">
+    <span class="step-num">3</span> <strong>Enter the code</strong>
+    <p>Type the code the host sent you.</p>
+    <p class="tip">Wrong digit? Press <strong>#</strong> to reset, then re-enter the full code.</p>
+    <img src="images/light/image3.png" alt="Entering code on keypad">
+  </div>
+  <div class="step">
+    <span class="step-num">4</span> <strong>You're in!</strong>
+    <p>Door opens. Remember your code — it auto-locks when closed.</p>
+    <img src="images/light/image1.png" alt="Door open">
+  </div>
+</div>
+
+<!-- ════════ PAGE 2: WIFI + RULES + ALEXA ════════ -->
+<div class="page-break"></div>
+<div class="page-header">
+  <h1>Light Residences</h1>
+  <div class="address">Tower 3, 12th Floor, Unit 1226</div>
+</div>
+
+<h2>WiFi</h2>
+<div class="wifi-section">
+  <div class="wifi-box">
+    <span class="band">5 GHz (Faster)</span>
+    <div class="label">Network</div>
+    <div class="value">!LightRes_1226_5G</div>
+    <div class="label" style="margin-top:6px;">Password</div>
+    <div class="value">LightRes_1226!</div>
+    <div class="qr">
+      <img src="images/light/image5.png" alt="5GHz WiFi QR code">
+      <div class="qr-label">Scan to connect</div>
+    </div>
+  </div>
+  <div class="wifi-box">
+    <span class="band">2.4 GHz (Wider Range)</span>
+    <div class="label">Network</div>
+    <div class="value">!LightRes_1226_2.4G</div>
+    <div class="label" style="margin-top:6px;">Password</div>
+    <div class="value">LightRes_1226!</div>
+    <div class="qr">
+      <img src="images/light/image7.png" alt="2.4GHz WiFi QR code">
+      <div class="qr-label">Scan to connect</div>
+    </div>
+  </div>
+</div>
+
+<h2>House Rules</h2>
+<ul class="rules">
+  <li><strong>Pool:</strong> Available for guests — <strong>PHP 150</strong> on regular days, <strong>PHP 300</strong> on holidays. Follow posted pool rules.</li>
+  <li><strong>A/C:</strong> Please turn off when not in use to conserve energy.</li>
+  <li><strong>Garbage:</strong> Dispose at the collection area at the far end of the hallway.</li>
+  <li><strong>Balcony:</strong> <span class="warn">No hanging of clothes on the balcony — PHP 5,000 fine</span> enforced by the building. Violations are documented with photo evidence, date, and time.</li>
+</ul>
+
+<h2>Alexa Voice Commands</h2>
+<p style="font-size:0.85em;color:#666;margin-bottom:8px;">Say these to the black Alexa box on the table.</p>
+<div class="alexa-grid">
+  <div class="alexa-card">
+    <h3>Watch Something</h3>
+    <code>"Alexa, <b>go home / select / go back</b>"</code>
+    <code>"Alexa, open <b>Netflix</b>"</code>
+    <code>"Alexa, open <b>YouTube</b>"</code>
+    <code>"Alexa, move <b>up/down/left/right</b>"</code>
+    <code>"Alexa, <b>pause / play / resume</b>"</code>
+    <code>"Alexa, <b>fast-forward / rewind</b>"</code>
+  </div>
+  <div class="alexa-card">
+    <h3>Music</h3>
+    <code>"Alexa, play <b>Elevation</b> by <b>U2</b>"</code>
+    <code>"Alexa, play <b>U2</b>"</code>
+    <code>"Alexa, <b>pause / resume</b>"</code>
+    <code>"Alexa, <b>volume up / down</b>"</code>
+    <code>"Alexa, <b>stop</b>"</code>
+  </div>
+  <div class="alexa-card">
+    <h3>Fun Stuff</h3>
+    <code>"Alexa, tell me a joke"</code>
+    <code>"Alexa, beatbox for me"</code>
+    <code>"Alexa, sing me a silly song"</code>
+    <code>"Alexa, do 100 push-ups"</code>
+  </div>
+</div>
+<p class="note">* You may need to use the TV remote to turn on the TV and set it to HDMI input before Alexa can control it.</p>
+
+</body>
+</html>

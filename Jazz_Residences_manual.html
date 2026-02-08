@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jazz Residences — Guest Manual</title>
+<style>
+  /* ── SCREEN + SHARED ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; color: #333; max-width: 540px; margin: 0 auto; padding: 24px 20px; line-height: 1.5; }
+  h1 { font-size: 1.4em; margin-bottom: 4px; }
+  h2 { font-size: 1.1em; margin-top: 28px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #222; }
+  .address { color: #666; font-size: 0.9em; margin-bottom: 12px; }
+  .badge { display: inline-block; font-weight: 700; padding: 2px 10px; border-radius: 4px; font-size: 0.95em; }
+  .badge-blue { background: #2a6099; color: #fff; }
+  .badge-red { background: #c9211e; color: #fff; }
+  .smart-lock { color: #2a6099; font-size: 0.9em; margin: 8px 0 4px; }
+  .id-notice { background: #fff3f0; border: 1px solid #e8a087; border-radius: 8px; padding: 10px 14px; margin: 10px 0 16px; font-size: 0.85em; }
+  .id-notice strong { color: #b42d1e; }
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .step { border: 1px solid #ddd; border-radius: 8px; padding: 12px; }
+  .step-num { display: inline-block; background: #2a6099; color: #fff; font-weight: 700; width: 24px; height: 24px; text-align: center; border-radius: 50%; font-size: 0.85em; line-height: 24px; margin-right: 4px; }
+  .step p { font-size: 0.85em; margin-top: 4px; }
+  .step img { width: 100%; max-width: 160px; margin-top: 8px; border-radius: 4px; }
+  .wifi-box { background: #f5f5f5; border-radius: 8px; padding: 14px 16px; margin-top: 8px; display: flex; align-items: center; gap: 16px; }
+  .wifi-info { flex: 1; }
+  .wifi-info .label { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+  .wifi-info .value { font-weight: 700; font-size: 1.05em; color: #c9211e; }
+  .wifi-info .hint { font-size: 0.75em; color: #888; }
+  .wifi-box .qr { text-align: center; }
+  .wifi-box .qr img { width: 90px; border-radius: 4px; }
+  .wifi-box .qr-label { font-size: 0.75em; color: #666; margin-bottom: 4px; }
+  .rules { margin-top: 8px; padding-left: 18px; }
+  .rules li { font-size: 0.9em; margin-bottom: 6px; }
+  .rules .warn { color: #c9211e; font-weight: 700; }
+  .alexa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .alexa-card { background: #f5f5f5; border-radius: 8px; padding: 12px; }
+  .alexa-card h3 { font-size: 0.9em; margin-bottom: 6px; }
+  .alexa-card code { display: block; font-family: inherit; font-size: 0.82em; color: #555; margin-bottom: 3px; }
+  .alexa-card code b { color: #2a6099; font-weight: 600; }
+  .note { font-size: 0.8em; color: #666; margin-top: 12px; font-style: italic; }
+  .page-break { display: none; }
+  .page-header { display: none; }
+
+  /* ── PRINT ── */
+  @media print {
+    @page { size: letter; margin: 0.6in 0.7in; }
+    body { max-width: 100%; margin: 0; padding: 0; font-size: 11px; line-height: 1.4; color: #000; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 14px; margin-top: 18px; border-bottom-color: #000; }
+    .address { font-size: 10px; }
+    .badge { font-size: 11px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .smart-lock { font-size: 10px; margin: 4px 0 2px; }
+    .id-notice { font-size: 10px; padding: 8px 12px; margin: 6px 0 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .steps { gap: 8px; }
+    .step { padding: 8px; }
+    .step p { font-size: 9.5px; }
+    .step img { max-width: 120px; }
+    .step-num { width: 20px; height: 20px; line-height: 20px; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wifi-box { padding: 10px 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wifi-info .label { font-size: 8px; }
+    .wifi-info .value { font-size: 13px; }
+    .wifi-info .hint { font-size: 8px; }
+    .wifi-box .qr img { width: 72px; }
+    .wifi-box .qr-label { font-size: 7px; }
+    .rules li { font-size: 10px; margin-bottom: 4px; }
+    .alexa-grid { gap: 8px; }
+    .alexa-card { padding: 8px 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .alexa-card h3 { font-size: 10px; margin-bottom: 4px; }
+    .alexa-card code { font-size: 9.5px; margin-bottom: 1px; }
+    .note { font-size: 8px; }
+    .page-break { display: block; page-break-before: always; height: 0; }
+    .page-header { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ PAGE 1: GETTING IN ════════ -->
+<h1>Jazz Residences</h1>
+<div class="address">SMDC Jazz Residences, Nicanor Garcia, Tower A, Makati, Metro Manila 1200, Philippines</div>
+<span class="badge badge-blue">Check-in: After 3 PM</span>
+<span class="badge badge-red" style="margin-left:6px;">Check-out: Before 12 Noon</span>
+<p class="smart-lock">Smart lock code will be sent via AirBNB / Booking.com chat.</p>
+
+<div class="id-notice">
+  <strong>ID Required at Lobby.</strong> Building policy requires guests to leave a government-issued ID at the lobby in exchange for an access card. Your ID will be returned at checkout when you return the card.
+</div>
+
+<h2>How to Enter</h2>
+<div class="steps">
+  <div class="step">
+    <span class="step-num">1</span> <strong>Find the unit</strong>
+    <p>Go to <strong>Tower A, 18th Floor, Unit 1819</strong></p>
+    <img src="images/jazz/image4.png" alt="Unit 1819 door">
+  </div>
+  <div class="step">
+    <span class="step-num">2</span> <strong>Wake the lock</strong>
+    <p>Touch the digital door lock screen to light up the keypad.</p>
+    <img src="images/jazz/image6.png" alt="Touch lock to activate">
+  </div>
+  <div class="step">
+    <span class="step-num">3</span> <strong>Enter the code</strong>
+    <p>Type the code the host sent you. Wrong digit? Re-enter the full code from the start.</p>
+    <img src="images/jazz/image5.png" alt="Entering code on keypad">
+  </div>
+  <div class="step">
+    <span class="step-num">4</span> <strong>You're in!</strong>
+    <p>Door opens. Remember your code — it auto-locks when closed.</p>
+    <img src="images/jazz/image2.png" alt="Door open">
+  </div>
+</div>
+
+<h2>WiFi</h2>
+<div class="wifi-box">
+  <div class="wifi-info">
+    <div class="label">Network</div>
+    <div class="value">JazzGuest_1819</div>
+    <div class="label" style="margin-top:8px;">Password</div>
+    <div class="value">P@ssword0000</div>
+    <div class="hint">(4 zeroes at the end)</div>
+  </div>
+  <div class="qr">
+    <div class="qr-label">Scan to connect</div>
+    <img src="images/jazz/image3.png" alt="WiFi QR code">
+  </div>
+</div>
+
+<!-- ════════ PAGE 2: RULES + ALEXA ════════ -->
+<div class="page-break"></div>
+<div class="page-header">
+  <h1>Jazz Residences</h1>
+  <div class="address">Tower A, 18th Floor, Unit 1819</div>
+</div>
+
+<h2>House Rules</h2>
+<ul class="rules">
+  <li><strong>Pool:</strong> Available for guests — <strong>PHP 150</strong> on regular days, <strong>PHP 300</strong> on holidays. Follow posted pool rules.</li>
+  <li><strong>A/C:</strong> Please turn off when not in use to conserve energy.</li>
+  <li><strong>Smoking:</strong> Allowed <strong>only on the balcony</strong>. <span class="warn">No smoking inside the unit.</span></li>
+  <li><strong>Garbage:</strong> Collected morning, noon, and evening — listen for the bell. If you miss it, drop rubbish at the holding area on the <strong>2nd floor</strong>.</li>
+</ul>
+
+<h2>Alexa Voice Commands</h2>
+<p style="font-size:0.85em;color:#666;margin-bottom:8px;">Say these to the black Alexa box on the table.</p>
+<div class="alexa-grid">
+  <div class="alexa-card">
+    <h3>A/C Control</h3>
+    <code>"Alexa, turn <b>on</b> air conditioner"</code>
+    <code>"Alexa, turn <b>off</b> air conditioner"</code>
+    <code>"Alexa, set temperature to <b>24</b> degrees"</code>
+    <code>"Alexa, increase temperature by <b>2</b> degrees"</code>
+    <code>"Alexa, decrease temperature by <b>2</b> degrees"</code>
+  </div>
+  <div class="alexa-card">
+    <h3>Watch Something</h3>
+    <code>"Alexa, <b>go home / select / go back</b>"</code>
+    <code>"Alexa, open <b>Netflix</b>"</code>
+    <code>"Alexa, open <b>YouTube</b>"</code>
+    <code>"Alexa, move <b>up/down/left/right</b>"</code>
+    <code>"Alexa, <b>pause / play / resume</b>"</code>
+    <code>"Alexa, <b>fast-forward / rewind</b>"</code>
+  </div>
+  <div class="alexa-card">
+    <h3>Music</h3>
+    <code>"Alexa, play <b>You Belong with Me</b> by <b>Taylor Swift</b>"</code>
+    <code>"Alexa, play <b>Taylor Swift</b>"</code>
+    <code>"Alexa, <b>pause / resume</b>"</code>
+    <code>"Alexa, <b>volume up / down</b>"</code>
+    <code>"Alexa, <b>stop</b>"</code>
+  </div>
+  <div class="alexa-card">
+    <h3>Fun Stuff</h3>
+    <code>"Alexa, tell me a joke"</code>
+    <code>"Alexa, beatbox for me"</code>
+    <code>"Alexa, sing me a silly song"</code>
+    <code>"Alexa, do 100 push-ups"</code>
+  </div>
+</div>
+<p class="note">* You may need to use the TV remote to turn on the TV and set it to HDMI input before Alexa can control it.</p>
+
+</body>
+</html>
